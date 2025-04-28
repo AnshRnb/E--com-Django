@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% block title %}login page{% endblock %} 
+
+
+{% load static %} 
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %} 
+
+
+
+
+{% block content %}
+
+
+
+
+
+<div class="main">
+
+    <div class="center-box">
+
+  
+
+  <h2 class="changes">Login Form</h2>
+
+  <form
+    action="{% url 'logindata' %}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+
+    <div class="inputs" >
+
+    <label for="email">Email</label>
+    <input type="email" name="email" placeholder="enter your email" required />
+
+   
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="enter your password"  required/>
+
+
+    </div>
+
+    <br>
+
+    
+    <div class="submit">
+        <input type="submit" />
+    </div>
+
+  </form>
+
+</div>
+
+</div>
+
+
+<div class="msg">
+
+    <h6 style="color: red;">{{error}}</h6>
+    <br />
+    <h4>Don't have an account? <a href="{% url 'registration' %}">Register</a></h4>
+
+</div>
+
+
+
+
+
+{% endblock %}

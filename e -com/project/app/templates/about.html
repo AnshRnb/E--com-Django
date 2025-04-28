@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+
+{% load static %} 
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock %} 
+
+
+
+
+{% block content%} 
+
+<div class="about-section">
+    <div class="about-header">
+      <h2>ABOUT <span>US</span></h2>
+  
+      <div class="about-content">
+        <img src="{% static '/images/about-img.png' %}" alt="About Us Image" class="about-img">
+  
+        <div class="about-text">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, ullam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit voluptatibus reprehenderit iusto libero voluptate ad aperiam, eos quos beatae nulla expedita fuga sit excepturi incidunt impedit quis maiores corrupti cumque accusantium quibusdam. Omnis, eligendi eius. Tenetur ipsam ab quisquam aliquam!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, sapiente!
+          </p>
+          <b class="mission-title">Our Mission</b>
+          <p>
+            Our Mission is Ashify to empower our customer with choices Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat iste, delectus quis harum labore vero odio sapiente facilis alias at!
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="choose-header">
+      <h2>WHY <span>CHOOSE US</span></h2>
+    </div>
+  
+    <div class="choose-content">
+  
+      <div class="choose-card">
+        <b>Quality Assurance:</b>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quidem tempore ipsum, aspernatur neque dicta explicabo aperiam porro sit esse!
+        </p>
+      </div>
+  
+      <div class="choose-card">
+        <b>Convenience:</b>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quidem tempore ipsum, aspernatur neque dicta explicabo aperiam porro sit esse!
+        </p>
+      </div>
+  
+      <div class="choose-card">
+        <b>Exceptional Customer Services:</b>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quidem tempore ipsum, aspernatur neque dicta explicabo aperiam porro sit esse!
+        </p>
+      </div>
+  
+    </div>
+  
+    <!-- You can manually create NewsLetterBox here too -->
+  </div>
+  
+
+
+{% endblock %}
+
+
+

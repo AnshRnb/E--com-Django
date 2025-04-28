@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    
+    <!-- Tailwind CSS via CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>{% block title %} Base.html {% endblock %}</title>
+    {% block css %} {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light text-white">
+
+      {% if userdata %}
+
+
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{%  url 'home1' pk=userdata.id  %}">𝙨𝙝𝙤𝙥𝙞𝙛𝙮 =></a>
+          <!-- <a class="navbar-brand" href="#" style="margin-right: 280px;">hello {{userdata.name}}</a> -->
+          <a class="navbar-brand" href="#">hello {{userdata.name}}</a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'home1' pk=userdata.id %}" aria-current="page">𝙷𝚘𝚖𝚎 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'product1' pk=userdata.id %}">𝙿𝚛𝚘𝚍𝚞𝚌𝚝𝚜</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="{% url 'contact1' pk=userdata.id %}">𝙲𝚘𝚗𝚝𝚊𝚌𝚝</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="{% url 'about1' pk=userdata.id %}">𝙰𝚋𝚘𝚞𝚝</a>
+              </li>
+
+              
+
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="{% url 'home' %}"
+            >Logout</a
+                >
+              </li>
+
+
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li> -->
+          
+             
+            </ul>
+
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+
+        {% else %}
+
+        
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">𝙨𝙝𝙤𝙥𝙞𝙛𝙮 =></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{% url 'home' %}"
+                >𝙷𝚘𝚖𝚎 </a
+              >
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'product' %}">𝙿𝚛𝚘𝚍𝚞𝚌𝚝𝚜</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">𝙲𝚘𝚗𝚝𝚊𝚌𝚝</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">𝙰𝚋𝚘𝚞𝚝</a>
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{% url 'login' %}"
+                tabindex="-1"
+                {% comment %} ignores while pressing tabs {% endcomment %}
+
+                aria-disabled="true" 
+                {% comment %} <!-- Tells screen readers: "This element is not interactive. {% endcomment %}
+                >LOG IN</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{% url 'registration' %}"
+                tabindex="-1"
+                aria-disabled="true"
+                >REGISTER</a
+              >
+            </li>
+
+       
+           
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+
+
+     
+      {% endif %}   
+
+    </nav>
+
+
+
+      {% block content %}  {% endblock %}
+    
+
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

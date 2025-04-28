@@ -1,0 +1,77 @@
+{% extends "base.html" %} 
+
+
+{% block title %}login page{% endblock %} 
+
+
+
+{% load static %} 
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/stylereg.css' %}" />
+{% endblock %} 
+
+
+{% block content %}
+
+
+<div class="main">
+
+    <div class="center-box">
+
+<form action="{% url 'finalregis' %}" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <div  class="center">
+        <h2>Registration Page</h2>
+
+    </div>
+
+    
+    <div class="inputs" >
+
+        
+        
+   <label for="username">Name:</label>
+   <input type="text" name="username" placeholder="Enter your name" value={{key.name}}>
+  
+
+   <label for="email">Email:</label>
+   <input type="email" name="email" placeholder="Enter your email">
+   
+
+   <label for="password">Password:</label>
+   <input type="password" name="password" placeholder="Enter your password">
+   
+
+   <label for="password">Confirm Password:</label>
+   <input type="password" name="cpassword" placeholder="Enter confirm password">
+   
+
+   <input type="submit" value="Submit">
+
+</div>
+
+</form>
+
+
+
+
+
+<div>
+<div>
+
+        <div class="msg">
+
+            <h6 style="color: red;">{{error}}</h6>
+            <br />
+            <h4>Go back to <a href="{% url 'home' %}">Home</a></h4>
+            
+        
+        </div>
+        
+        
+
+{% endblock %}
